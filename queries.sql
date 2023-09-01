@@ -22,11 +22,16 @@ ROLLBACK;
 SELECT * FROM animals;
 
 -- Transaction: Update species based on conditions
+
 BEGIN;
 UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
 UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
-COMMIT;
+
+-- Verify the changes
 SELECT * FROM animals;
+
+-- commit the changes
+COMMIT;
 
 -- Transaction: Delete and rollback
 BEGIN;
